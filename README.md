@@ -29,11 +29,11 @@ Usuarios de prueba para el sistema
 Administrador
 -------------
 Usuario: kruger-1804629226
-Contraseña: 1ue09r2grk282646
+Contraseña: r10u89er262kg246
 
 Empleado
 --------
-Usuario: kruger-1850261668
-Contraseña: r688k66r10215gue
+Usuario: kruger-1805714167
+Contraseña: u14e1g87076r1rk5
 
 Nota: Al momento de crear un empleado nuevo usando la cuenta de administrador el usuario y contraseña para ingresar al sistema se envian al correo electrónico del registro.
