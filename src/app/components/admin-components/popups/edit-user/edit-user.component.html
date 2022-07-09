@@ -1,0 +1,158 @@
+<div *ngIf="loadingState" class="smallWidth">
+  <app-loading></app-loading>
+</div>
+
+<div class="container-fluid" *ngIf="!loadingState">
+  <div class="row justify-content-center">
+    <div class="col-sm-12">
+      <mat-card>
+        <div class="row jumbotron-blue">
+
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-sm-11">
+                <p class="h1">Actualizar empleado</p>
+              </div>
+              <div class="col-sm-1">
+                <button mat-mini-fab color="warn" mat-dialog-close><mat-icon>close</mat-icon></button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <br/>
+        <mat-card-content>
+          <div mat-dialog-content>
+            <form
+            [formGroup]="employeeForm"
+            novalidate
+            class="p-3 form"
+            (submit)="updateUser()"
+            #cStoreForm="ngForm"
+          >
+            <div class="row p-3">
+              <div class="col-sm-6">
+                <mat-form-field appearance="outline" class="anchoCompleto">
+                  <mat-label>Nombres</mat-label>
+                  <input
+                    matInput
+                    placeholder="Ingrese los nombres del empleado"
+                    maxlength="100"
+                    (keypress)="stringOnly($event)"
+                    formControlName="names"
+                    required
+                  />
+                  <mat-icon matPrefix>face</mat-icon>
+                  <mat-error
+                    *ngIf="
+                    employeeForm
+                        .get('names')
+                        ?.hasError('required')
+                    "
+                    >Por favor, ingresa los nombres del empleado.</mat-error
+                  >
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field appearance="outline" class="anchoCompleto">
+                  <mat-label>Apellidos</mat-label>
+                  <input
+                    matInput
+                    placeholder="Ingrese los apellidos del empleado"
+                    maxlength="100"
+                    (keypress)="stringOnly($event)"
+                    formControlName="lastNames"
+                    required
+                  />
+                  <mat-icon matPrefix>face</mat-icon>
+                  <mat-error
+                    *ngIf="
+                    employeeForm
+                        .get('lastNames')
+                        ?.hasError('required')
+                    "
+                    >Por favor, ingresa los apellidos del empleado.</mat-error
+                  >
+                </mat-form-field>
+              </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-sm-6">
+                  <mat-form-field appearance="outline" class="anchoCompleto">
+                    <mat-label>C&eacute;dula</mat-label>
+                    <input
+                      matInput
+                      placeholder="Ingrese la cédula del empleado"
+                      maxlength="10"
+                      (keypress)="numberOnly($event)"
+                      formControlName="card"
+                      required
+                    />
+                    <mat-icon matPrefix>credit_card</mat-icon>
+                    <mat-error
+                      *ngIf="
+                      employeeForm
+                          .get('card')
+                          ?.hasError('required')
+                      "
+                      >Por favor, ingresa la cédula del empleado.</mat-error
+                    >
+                    <mat-error
+                      *ngIf="
+                      employeeForm
+                          .get('card')
+                          ?.hasError('minlength')
+                      "
+                      >La c&eacute;dula ingresada debe tener 10 d&iacute;gitos.</mat-error
+                    >
+                    <mat-error
+                      *ngIf="
+                      employeeForm
+                          .get('card')
+                          ?.hasError('maxlength')
+                      "
+                      >La c&eacute;dula ingresada debe tener 10 d&iacute;gitos.</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+                <div class="col-sm-6">
+                  <mat-form-field appearance="outline" class="anchoCompleto">
+                    <mat-label>Correo electr&oacute;nico</mat-label>
+                    <input
+                      matInput
+                      placeholder="Ingrese el email del empleado"
+                      maxlength="100"
+                      formControlName="email"
+                      required
+                    />
+                    <mat-icon matPrefix>email</mat-icon>
+                    <mat-error
+                      *ngIf="
+                      employeeForm
+                          .get('email')
+                          ?.hasError('required')
+                      "
+                      >Por favor, ingresa el email del empleado.</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+              </div>
+
+            <div class="flex-parent jc-center pt-4 pb-2">
+              <button type="button" class="margin-right" mat-raised-button color="basic" (click)="onNoClick()">
+                Cancelar
+              </button>
+
+              <button mat-raised-button class="button-blue" type="submit">
+                Actualizar empleado
+              </button>
+            </div>
+
+          </form>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<mat-toolbar class="mat-elevation-z8 menu">
+  <div fxHide.gt-xs>
+      <button mat-icon-button (click)="showSidenav()">
+          <mat-icon>menu</mat-icon>
+      </button>
+  </div>
+  <div>
+      <h1 class="page-logo">Inventario de vacunación</h1>
+  </div>
+  <div fxHide.xs style="margin: 10px;">
+    <a>|</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="space-between center" fxHide.xs>
+      <div class="left-items">
+          <a mat-button routerLink="adminpanel" *ngIf="showAdminPanel">Administrar Empleados</a>
+          <a mat-button routerLink="employeepanel" *ngIf="showEmployeePanel">Datos Personales</a>
+      </div>
+
+      <div class="right-items">
+          <a mat-raised-button class="button-blue" routerLink="login" (click)="logout()" *ngIf="isLoggedIn">Cerrar Sesi&oacute;n</a>
+      </div>
+
+  </div>
+
+
+</mat-toolbar>

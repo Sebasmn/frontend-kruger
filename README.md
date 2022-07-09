@@ -1,27 +1,39 @@
-# FrontendKruger
+Este proyecto esta hecho con el framework de angularjs.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+Los estilos utilizados fueron una combinación de bootstrap, angular material y estilos propios.
 
-## Development server
+Como podrá observar el proyecto tendra diferentes carpetas creadas en app, carpeta que podremos localizar en la siguiente ruta "src/app".
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Carpetas incluidas dentro de app:
+"_guards": archivos con programación para controlar el acceso a nuestras rutas del proyecto.
+"_helpers": contiene un archivo con la programación necesaria para establecer el token de inicio de sesión en nuestro proyecto.
+"_models": modelos creados para uso en programación.
+"_services": archivos para instanciar los métodos creados en el backend y poderlos utilizar como método en el proyecto.
+"angular-material": contiene un archivo con todos los elementos importados de la libreria angular material para su uso en las interfaces del proyecto.
+"components": contiene los componentes creados para la creación del presente proyecto.
 
-## Code scaffolding
+El archivo "app-routing.module.ts" contiene las rutas creadas para la navegación del sistema.
+El archivo "app.component.html" contiene la estructura básica que tendra nuestro sistema, incluyendo las interfaces instanciadas por nuestras rutas.
+El archivo "styles.scss" contiene nuestros estilos globales para la aplicación que pueden ser usados en cualquier componente creado. 
+Nota: algunos componentes tienen sus propios estilos establecidos en su archivo scss.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Pasos para ejecutar el proyecto:
 
-## Build
+1. Ejecutar el comando "npm install"
+2. Abrir una terminal y ejecutar el comando "ng serve -o"
+3. Esperar hasta que el proyecto se despliegue en una nueva pestaña del navegador por defecto de su computador
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+Usuarios de prueba para el sistema
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Administrador
+-------------
+Usuario: kruger-1804629226
+Contraseña: 1ue09r2grk282646
 
-## Running end-to-end tests
+Empleado
+--------
+Usuario: kruger-1850261668
+Contraseña: r688k66r10215gue
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Nota: Al momento de crear un empleado nuevo usando la cuenta de administrador el usuario y contraseña para ingresar al sistema se envian al correo electrónico del registro.

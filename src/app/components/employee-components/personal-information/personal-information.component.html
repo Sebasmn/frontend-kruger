@@ -1,0 +1,258 @@
+<div *ngIf="loadingState">
+  <app-loading></app-loading>
+</div>
+
+<div class="container-fluid pt-5 pb-4" *ngIf="!loadingState">
+  <div class="row justify-content-center">
+
+    <div class="col-sm-9">
+      <mat-card>
+        <div class="row jumbotron-blue" *ngIf="!isLoggedIn">
+          <div class="col-sm-12 d-flex justify-content-center">
+              <p class="h3">Completa tu informaci&oacute;n</p>
+          </div>
+        </div>
+        <br />
+        <mat-card-content>
+          <form [formGroup]="informationForm" *ngIf="!isLoggedIn" class="p-3 form" (ngSubmit)="updateInformation()">
+            <div class="row p-3">
+                <div class="col-sm-6">
+                    <mat-form-field appearance="outline" class="completeWidth">
+                        <mat-label>Nombres</mat-label>
+                        <input
+                          matInput
+                          type="text"
+                          maxlength="100"
+                          placeholder="Ingrese sus nombres"
+                          formControlName="names"
+                          required
+                        />
+                        <mat-icon matPrefix>face</mat-icon>
+                        <mat-error
+                        *ngIf="
+                        informationForm
+                            .get('names')
+                            ?.hasError('required')
+                        "
+                        >Por favor, ingresa tus apellidos.</mat-error
+                      >
+                      </mat-form-field>
+                </div>
+                <div class="col-sm-6">
+                  <mat-form-field appearance="outline" class="completeWidth">
+                      <mat-label>Apellidos</mat-label>
+                      <input
+                        matInput
+                        type="text"
+                        maxlength="100"
+                        placeholder="Ingrese sus apellidos"
+                        formControlName="lastNames"
+                        required
+                      />
+                      <mat-icon matPrefix>face</mat-icon>
+                      <mat-error
+                        *ngIf="
+                        informationForm
+                            .get('lastNames')
+                            ?.hasError('required')
+                        "
+                        >Por favor, ingresa tus apellidos.</mat-error
+                      >
+                    </mat-form-field>
+              </div>
+            </div>
+            <div class="row p-3">
+              <div class="col-sm-6">
+                <mat-form-field appearance="outline" class="completeWidth">
+                  <mat-label>C&eacute;dula</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    maxlength="100"
+                    placeholder="Ingresa tu cédula"
+                    formControlName="card"
+                    required
+                  />
+                  <mat-icon matPrefix>credit_card</mat-icon>
+                  <mat-error
+                    *ngIf="
+                    informationForm
+                        .get('card')
+                        ?.hasError('required')
+                    "
+                    >Por favor, ingresa tus apellidos.</mat-error
+                  >
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field appearance="outline" class="completeWidth">
+                  <mat-label>Correo electr&oacute;nico</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    maxlength="100"
+                    placeholder="Ingresa tu email"
+                    formControlName="email"
+                    required
+                  />
+                  <mat-icon matPrefix>email</mat-icon>
+                  <mat-error
+                    *ngIf="
+                    informationForm
+                        .get('email')
+                        ?.hasError('required')
+                    "
+                    >Por favor, ingresa tu email.</mat-error
+                  >
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row p-3">
+              <div class="col-sm-6">
+                <mat-form-field appearance="fill" class="completeWidth">
+                  <mat-label>Fecha de nacimiento</mat-label>
+                  <input matInput [matDatepicker]="picker" formControlName="bornDate">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+
+                  <mat-error
+                    *ngIf="
+                    informationForm
+                        .get('bornDate')
+                        ?.hasError('required')
+                    "
+                    >Por favor, selecciona tu fecha de nacimiento.</mat-error
+                  >
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field appearance="outline" class="completeWidth">
+                  <mat-label>Direcci&oacute;n</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    maxlength="100"
+                    placeholder="Ingresa tu dirección"
+                    formControlName="direction"
+                    required
+                  />
+                  <mat-icon matPrefix>place</mat-icon>
+                  <mat-error
+                    *ngIf="
+                    informationForm
+                        .get('direction')
+                        ?.hasError('required')
+                    "
+                    >Por favor, ingresa tu dirección.</mat-error
+                  >
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row p-3">
+              <div class="col-sm-6">
+                <mat-form-field appearance="outline" class="completeWidth">
+                  <mat-label>Tel&eacute;fono</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    maxlength="10"
+                    placeholder="Ingresa tu teléfono"
+                    formControlName="phone"
+                    required
+                  />
+                  <mat-icon matPrefix>phone</mat-icon>
+                  <mat-error
+                    *ngIf="
+                    informationForm
+                        .get('phone')
+                        ?.hasError('required')
+                    "
+                    >Por favor, ingresa tu teléfono.</mat-error
+                  >
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-card>
+                  <mat-label>¿Estas vacunado?</mat-label>
+                  <mat-radio-group
+                    formControlName="vaccinated"
+                    color="primary"
+                  >
+                  <div class="center-content">
+                    <mat-radio-button class="margen-check px-3" [value]="true"
+                    >Si</mat-radio-button
+                  >
+                  <mat-radio-button
+                    class="margen-check px-3"
+                    [value]="false"
+                    >No</mat-radio-button
+                  >
+                  </div>
+
+                  </mat-radio-group>
+                </mat-card>
+              </div>
+            </div>
+            <div *ngIf="informationForm.get('vaccinated')?.value">
+              <div class="row p-3">
+
+                <div class="col-sm-6">
+                  <mat-form-field appearance="outline" class="completeWidth">
+                    <mat-label>Tipo de vacuna</mat-label>
+                    <mat-select [formControl]="selectedType" [(ngModel)]="selectedTypeOption" [errorStateMatcher]="matcher">
+                      <mat-option>--</mat-option>
+                      <mat-option value="Sputnik">Sputnik</mat-option>
+                      <mat-option value="AstraZeneca">AstraZeneca</mat-option>
+                      <mat-option value="Pfizer">Pfizer</mat-option>
+                      <mat-option value="Jhonson&Jhonson">Jhonson&Jhonson</mat-option>
+                    </mat-select>
+                    <mat-hint>Tipo de vacuna</mat-hint>
+                    <mat-error *ngIf="selectedType.hasError('required')"
+                      >Necesitas seleccionar un elemento</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+
+                <div class="col-sm-6">
+                  <mat-form-field appearance="fill" class="completeWidth">
+                    <mat-label>Fecha de vacunaci&oacute;n</mat-label>
+                    <input matInput [matDatepicker]="pickerTo">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerTo></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row p-3">
+
+                <div class="col-sm-6">
+                  <mat-form-field appearance="outline" class="completeWidth">
+                    <mat-label>N&uacute;mero de dosis</mat-label>
+                    <input
+                      matInput
+                      type="text"
+                      maxlength="100"
+                      placeholder="Ingresa el número de dosis de la vacuna"
+                      required
+                    />
+                    <mat-icon matPrefix>account_box</mat-icon>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="flex-parent jc-center py-3">
+                <button mat-raised-button class="button-blue completeWidth" type="submit">
+                  Actualizar Informaci&oacute;n
+                </button>
+              </div>
+          </form>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <br/><br/><br/><br/>
+</div>

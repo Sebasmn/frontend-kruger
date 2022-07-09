@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import 'material-icons/iconfont/material-icons.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+div.jumbotron-blue{
+  margin: 0px;
+  padding: 15px;
+  background-color: #1548A8;
+  color: #FFFFFF;
+  border-radius: 5px;
+}
+
+.completeWidth {
+  width: 100% !important;
+}
+
+.completeHeight {
+  height: 100% !important;
+}
+
+.button-blue {
+  background-color: #1548A8;
+  color: #FFFFFF;
+}
+
+.button-orange {
+  background-color: #FEB235;
+  color: #FFFFFF;
+}
+
+footer{
+  position:fixed;
+  bottom:0px;
+  background-color:#FEB235;
+  width:100%;
+  }
+
+  .flex-parent {
+    display: flex;
+  }
+
+  .jc-center {
+    justify-content: center;
+  }
+
+  button.margin-right {
+    margin-right: 20px;
+  }

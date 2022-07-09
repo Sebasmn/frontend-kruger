@@ -1,0 +1,11 @@
+<mat-nav-list class="pt-5">
+  <a mat-list-item routerLink="adminpanel" *ngIf="showAdminPanel"  (click)="onSidenavClick()">
+      <mat-icon>assignment_ind</mat-icon><span class="nav-item">Administrar empleados</span>
+  </a>
+  <a mat-list-item routerLink="employeepanel" *ngIf="showEmployeePanel"  (click)="onSidenavClick()">
+      <mat-icon>account_circle</mat-icon><span class="nav-item">Datos personales</span>
+  </a>
+  <a mat-list-item routerLink="login" (click)="logout()" *ngIf="isLoggedIn"  (click)="onSidenavClick()">
+      <mat-icon>clear</mat-icon><span class="nav-item">Cerrar Sesi&oacute;n</span>
+  </a>
+</mat-nav-list>
